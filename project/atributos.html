@@ -47,6 +47,19 @@
   </nav>
 
   <main>
+    <h1>Modificar Atributos de un Enlace HTML con JavaScript</h1>
+
+    <p>Este es un enlace:</p>
+    <a id="myLink" href="https://www.google.com" target="_blank">Ir a Google</a>
+
+    <button type="button" onclick="cambiarEnlace()">Cambiar Enlace</button>
+
+    <script>
+        function cambiarEnlace() {
+            document.getElementById('myLink').href = 'https://www.bing.com';
+            document.getElementById('myLink').innerHTML = 'Ir a Bing';
+        }
+    </script>
 
   </main>
 
@@ -59,7 +72,5 @@
 
 </body>
 
-<script src="https://www.google-analytics.com/analytics.js" async></script>
 
 </html>
-======
