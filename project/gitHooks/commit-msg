@@ -1,0 +1,13 @@
+#!/bin/bash
+
+msg=$(cat $1)
+
+plantilla="^MOTIVO DEL COMMIT: .+IMPLEMENTACIÓN: .+"
+
+if [[ ! $msg =~ $plantilla ]]; then
+  echo "Error: Formato de mensaje de commit inválido."
+  echo "La estructura debe ser:"
+  echo "MOTIVO DEL COMMIT: <título>"
+  echo "IMPLEMENTACIÓN: <descripción>"
+  exit 1
+fi

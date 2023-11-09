@@ -1,0 +1,13 @@
+#!/bin/bash
+FORBIDDEN_CHARS='[áâàéèêíìîóòôúùû]'
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(txt|md)$')
+
+for file in $files; do
+    if grep -q -P $FORBIDDEN_CHARS "$file"; then
+        echo "ERROR, HAS UTILIZADO CARACTERES EXTRAÑOS REPITA EL COMMIT SIN ELLOS"
+        exit 1
+    fi
+done
+
+echo "Pre-commit hook passed successfully."
+exit 0
